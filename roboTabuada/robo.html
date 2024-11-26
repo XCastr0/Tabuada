@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .result p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Gerar Tabuada</h2>
+    <input type="number" id="valor" placeholder="Digite um número" required>
+    <button onclick="gerarTabuada()">Gerar Tabuada</button>
+
+    <div id="resultados" class="result"></div>
+</div>
+
+<script>
+    function gerarTabuada() {
+        
+        const valor = document.getElementById('valor').value;
+        
+        
+        if (valor === '') {
+            alert('Por favor, digite um valor válido!');
+            return;
+        }
+
+        
+        const numero = parseInt(valor);
+
+        
+        if (isNaN(numero)) {
+            alert('Por favor, digite um número válido!');
+            return;
+        }
+
+        
+        const resultadosDiv = document.getElementById('resultados');
+        resultadosDiv.innerHTML = ''; 
+
+        
+        for (let i = 0; i <= 20; i++) {
+            const resultado = numero * i;
+            resultadosDiv.innerHTML += `<p>${numero} x ${i} = ${resultado}</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>
